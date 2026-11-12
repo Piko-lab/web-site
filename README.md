@@ -36,7 +36,7 @@ Everything external lives in the `CONFIG` block at the top of `app.js`:
 ```js
 version:       '1.5.3'
 installer:     'https://github.com/black2000a/PIKO-AI-A-APP-DOWNLOAD'
-portable:      'https://github.com/black2000a/PIKO-AI-A-APP-DOWNLOAD'
+portable:      'https://github.com/black2000a/PIKO-AI-A-APP-DOWNLOAD/releases/latest/download/PIKO-AI-Portable-1.5.3-x64.exe'
 github:        'https://github.com/black2000a/Introducing-PIKO-AI-A-Free-AI-Powered-IDE-with-Local-AI-Support'
 discordHandle: 'taha29dev'
 mail:          'mailto:tahazitoni123@gmail.com'
