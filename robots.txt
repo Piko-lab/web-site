@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://black2000a.github.io/web-site/sitemap.xml

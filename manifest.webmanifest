@@ -1,0 +1,15 @@
+{
+  "name": "PIKO AI",
+  "short_name": "PIKO AI",
+  "description": "Free, local-first AI development environment for Windows 10 and 11. Autonomous coding agent, project memory, terminal and local models.",
+  "start_url": "/web-site/",
+  "scope": "/web-site/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7c3aed",
+  "categories": ["developer", "productivity"],
+  "icons": [
+    { "src": "assets/favicon-256.png", "sizes": "256x256", "type": "image/png" },
+    { "src": "assets/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
