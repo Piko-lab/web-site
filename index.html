@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PIKO AI — the AI development environment for Windows</title>
+    <meta
+      name="description"
+      content="PIKO AI is a free, local-first AI development environment for Windows 10 and 11: autonomous coding agent, project memory, real terminal, local models. No subscription, no account, no telemetry."
+    />
+    <meta property="og:title" content="PIKO AI — everything you need to build great software" />
+    <meta
+      property="og:description"
+      content="A free, local-first AI development environment for Windows 10 and 11. Agent, memory, terminal and local models in one workspace."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/ide.png" />
+    <meta name="theme-color" content="#f6f1ff" />
+    <link rel="icon" href="assets/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=11" />
+    <link rel="stylesheet" href="download.css?v=4" />
+    <link rel="stylesheet" href="cta.css?v=1" />
+    <link rel="stylesheet" href="theme.css?v=8" />
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true" focusable="false">
+      <defs>
+        <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2.5-6-3m12 5v-3.9a3.4 3.4 0 0 0-1-2.6c3-.3 6-1.5 6-6.6a5.2 5.2 0 0 0-1.4-3.6 4.8 4.8 0 0 0-.1-3.6s-1.1-.3-3.6 1.4a12.4 12.4 0 0 0-6.6 0C6.8.2 5.7.5 5.7.5a4.8 4.8 0 0 0-.1 3.6A5.2 5.2 0 0 0 4.2 7.7c0 5.1 3 6.3 6 6.6a3.4 3.4 0 0 0-1 2.6V21"/></symbol>
+        <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.4"/><path d="m7.5 9 3 3-3 3M13 15h4"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.4"/><path d="m4.2 7.2 7.8 5.8 7.8-5.8"/></symbol>
+        <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.35-7-9.3A3.94 3.94 0 0 1 12 8a3.94 3.94 0 0 1 7 2.7C19 15.65 12 20 12 20z"/></symbol>
+        <symbol id="i-code" viewBox="0 0 24 24"><path d="m9 8-4.5 4L9 16M15 8l4.5 4L15 16"/></symbol>
+        <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="6.5" y="6.5" width="11" height="11" rx="2.2"/><rect x="9.8" y="9.8" width="4.4" height="4.4" rx="1"/><path d="M10 3v3M14 3v3M10 18v3M14 18v3M3 10h3M3 14h3M18 10h3M18 14h3"/></symbol>
+        <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3.5 13.7 9l5.5 1.7-5.5 1.7L12 18l-1.7-5.6L4.8 10.7 10.3 9z"/><path d="M18.5 16.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z"/></symbol>
+        <symbol id="i-windows" viewBox="0 0 24 24"><path d="M3 5.5 10.5 4.4v7.1H3zM12 4.1 21 3v8.5h-9zM3 12.5h7.5v7.1L3 18.5zM12 12.5h9V21l-9-1.1z"/></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3.5v11M7.5 10.5 12 15l4.5-4.5M4.5 19.5h15"/></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4.5 12h14M13 6.5l5.5 5.5L13 17.5"/></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 5.7v5.8c0 4.3 2.9 7.6 7 9.5 4.1-1.9 7-5.2 7-9.5V5.7z"/><path d="m9 12 2.2 2.2L16 9.4"/></symbol>
+        <symbol id="i-figma" viewBox="0 0 24 24"><path d="M9 3h3v6H9a3 3 0 1 1 0-6zM12 3h3a3 3 0 1 1 0 6h-3zM9 9h3v6H9a3 3 0 1 1 0-6zM9 15h3v3a3 3 0 1 1-3-3z"/><circle cx="15" cy="12" r="3"/></symbol>
+        <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+      </defs>
+    </svg>
+
+    <div class="ambient" aria-hidden="true">
+      <span class="orb orb-a"></span>
+      <span class="orb orb-b"></span>
+      <span class="orb orb-c"></span>
+      <span class="grid"></span>
+    </div>
+
+    <!-- ------------------------------------------------------------- nav -->
+    <header class="nav" id="nav">
+      <div class="wrap nav-inner">
+        <a class="brand" href="#top">
+          <img class="brand-mark" src="assets/logo.png" alt="" />
+          <span class="brand-name">PIKO<span>AI</span></span>
+        </a>
+
+        <nav class="nav-links" id="navLinks" aria-label="Main">
+          <a href="#top">Home</a>
+          <a href="#integration">Integration</a>
+          <a href="#demo">Demo</a>
+          <a href="#install">Install</a>
+        </nav>
+
+        <div class="nav-cta">
+          <a class="btn btn-ghost btn-sm" href="demo.html" target="_blank" rel="noopener">Open demo</a>
+          <a class="pb-ai-button pb-ai-button--nav" href="#download">
+            <span class="pb-ai-sparkle" aria-hidden="true">✦</span>
+            <span>Download</span>
+          </a>
+        </div>
+
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- ------------------------------------------------------- hero -->
+      <section class="hero">
+        <div class="wrap hero-copy">
+          <h1>Everything You Need to <br />Build Great Software</h1>
+          <p class="lead">
+            A local-first development environment designed for speed, clarity and productivity. Edit, debug,
+            review and ship your projects with an AI agent that runs on your own machine.
+          </p>
+          <div class="hero-actions">
+            <a class="pb-ai-button" href="#download">
+              <span class="pb-ai-sparkle" aria-hidden="true">✦</span>
+              <span>Get Started</span>
+            </a>
+            <a class="btn btn-ghost" href="#demo">Try the demo</a>
+          </div>
+          <span class="hero-note">Windows 10 &amp; 11 · 64-bit · no account, no subscription</span>
+        </div>
+
+        <div class="beam" aria-hidden="true">
+          <span class="beam-aurora"></span>
+          <span class="hero-app"><img src="assets/logo.png" alt="" /></span>
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------- integration -->
+      <section class="integration" id="integration">
+        <div class="wrap integration-inner">
+          <header class="integration-head">
+            <span class="integration-eyebrow">
+              <span class="pulse-dot"></span>
+              Integrations
+            </span>
+            <h2>Connect with the Tools <br />You Already Love</h2>
+            <p>
+              Seamlessly integrate your favourite development tools into one workflow. From version control to
+              local models and your real terminal, everything works together without disrupting your coding
+              experience.
+            </p>
+          </header>
+
+          <div class="int-cards">
+            <article class="int-card">
+              <header>
+                <span class="int-icon int-icon-github"><svg class="i"><use href="#i-github" /></svg></span>
+                <span class="int-name">GitHub</span>
+                <span class="int-pill">Source control</span>
+              </header>
+              <h3>Built for GitHub</h3>
+              <p>
+                Stage, review and commit without leaving the editor. Diffs, branches and history stay one
+                shortcut away, and every change is traceable.
+              </p>
+            </article>
+
+            <article class="int-card featured">
+              <header>
+                <span class="int-icon int-icon-ollama"><svg class="i"><use href="#i-cpu" /></svg></span>
+                <span class="int-name">Ollama</span>
+                <span class="int-pill int-pill-blue">Local models</span>
+              </header>
+              <h3>Your Models, Locally</h3>
+              <p>
+                Point PIKO AI at Ollama, LM Studio or any OpenAI-compatible endpoint. Local models answer
+                instantly, and your prompts never leave the machine.
+              </p>
+            </article>
+
+            <article class="int-card">
+              <header>
+                <span class="int-icon int-icon-powershell"><svg class="i"><use href="#i-terminal" /></svg></span>
+                <span class="int-name">PowerShell</span>
+                <span class="int-pill int-pill-violet">Built in</span>
+              </header>
+              <h3>Ship with Confidence</h3>
+              <p>
+                A real PowerShell session, build scripts and problem reporting live in the same window — the
+                agent can run them with your approval, never behind your back.
+              </p>
+            </article>
+          </div>
+
+          <p class="int-note">
+            <svg class="i" aria-hidden="true"><use href="#i-sparkles" /></svg>
+            Also works with LM Studio and any OpenAI-compatible endpoint.
+          </p>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------------- demo -->
+      <section class="demo" id="demo">
+        <div class="wrap">
+          <div class="demo-head">
+            <div>
+              <h2>Try the workspace</h2>
+              <p>Open files, run a command, ask the agent — this is the real IDE, running in the page.</p>
+            </div>
+            <a class="btn btn-pill" href="demo.html" target="_blank" rel="noopener">
+              Open full demo
+              <svg class="i"><use href="#i-arrow" /></svg>
+            </a>
+          </div>
+
+          <div class="demo-frame">
+            <div class="demo-glow" aria-hidden="true"></div>
+            <iframe src="demo.html" title="PIKO AI IDE demo" loading="lazy"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------- downloads -->
+      <section class="dl" id="install">
+        <div class="dl-grid" aria-hidden="true"></div>
+
+        <div class="wrap dl-inner download-inner">
+          <div class="dl-stage">
+            <img
+              class="dl-shot"
+              src="assets/ide.png"
+              width="1514"
+              height="962"
+              alt="The PIKO AI desktop app: file explorer, code editor and the PIKO AI agent panel side by side."
+            />
+          </div>
+
+          <div class="dl-copy">
+            <span class="dl-mark"><img src="assets/icon.png" alt="PIKO AI" /></span>
+            <h2>PIKO AI for desktop</h2>
+            <p>
+              PIKO AI is now available for desktop. Work in the background, edit local files, and handle
+              long, complex tasks with ease. New features and improvements are shipped regularly.
+            </p>
+
+            <div class="dl-actions" id="download">
+              <div class="dl-buttons">
+                <a class="pb-ai-button pb-ai-button--download" data-installer href="https://github.com/black2000a/PIKO-AI-A-APP-DOWNLOAD" target="_blank" rel="noopener">
+                  <span class="pb-ai-sparkle" aria-hidden="true">✦</span>
+                  <span>Download app</span>
+                </a>
+                <a class="dl-src" data-github href="https://github.com/black2000a/Introducing-PIKO-AI-A-Free-AI-Powered-IDE-with-Local-AI-Support" target="_blank" rel="noopener">
+                  <svg class="i" aria-hidden="true"><use href="#i-github" /></svg>
+                  Source code
+                </a>
+              </div>
+              <span class="dl-meta">Windows 10 or later · 64-bit · <span data-installer-size>175 MB</span></span>
+            </div>
+
+            <a class="dl-alt" data-portable href="https://github.com/black2000a/PIKO-AI-A-APP-DOWNLOAD" target="_blank" rel="noopener">
+              Also available as a portable build (<span data-portable-size>150 MB</span>)
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- --------------------------------------------- piko x stack -->
+      <section class="stack" aria-label="PIKO AI, GitHub and Ollama">
+        <div class="wrap stack-inner">
+          <span class="stack-label">PIKO AI works with</span>
+          <div class="stack-row">
+            <a class="stack-item" href="#top">
+              <img src="assets/icon.png" alt="" />
+              <span>PIKO AI</span>
+            </a>
+            <span class="stack-x" aria-hidden="true">×</span>
+            <a class="stack-item" data-github href="https://github.com/black2000a/Introducing-PIKO-AI-A-Free-AI-Powered-IDE-with-Local-AI-Support" target="_blank" rel="noopener">
+              <svg class="i" aria-hidden="true"><use href="#i-github" /></svg>
+              <span>GitHub</span>
+            </a>
+            <span class="stack-x" aria-hidden="true">×</span>
+            <a class="stack-item" data-ollama href="https://ollama.com" target="_blank" rel="noopener">
+              <svg class="i" aria-hidden="true"><use href="#i-cpu" /></svg>
+              <span>Ollama</span>
+            </a>
+          </div>
+          <p class="stack-note">Open source. Local-first. Built with the community.</p>
+        </div>
+      </section>
+
+      <!-- ------------------------------------------ developer message -->
+      <section class="dev" id="developer">
+        <div class="wrap dev-inner">
+          <div class="dev-head">
+            <span class="eyebrow">Developer message</span>
+            <h2>A word from the maker</h2>
+            <p>Read TAHA's message in your language — 20 translations, Arabic first.</p>
+          </div>
+
+          <div class="langs" id="devLangs" role="group" aria-label="Choose a language for the developer message">
+            <button type="button" class="lang-chip" data-lang="ma" aria-pressed="true"><span class="lang-code">MA</span> العربية</button>
+            <button type="button" class="lang-chip" data-lang="fr" aria-pressed="false"><span class="lang-code">FR</span> Français</button>
+            <button type="button" class="lang-chip" data-lang="zh" aria-pressed="false"><span class="lang-code">CH</span> 中文</button>
+            <button type="button" class="lang-chip" data-lang="en" aria-pressed="false"><span class="lang-code">US</span> English</button>
+            <button type="button" class="lang-chip" data-lang="es" aria-pressed="false"><span class="lang-code">ES</span> Español</button>
+            <button type="button" class="lang-chip" data-lang="de" aria-pressed="false"><span class="lang-code">DE</span> Deutsch</button>
+            <button type="button" class="lang-chip" data-lang="pt" aria-pressed="false"><span class="lang-code">BR</span> Português</button>
+            <button type="button" class="lang-chip" data-lang="it" aria-pressed="false"><span class="lang-code">IT</span> Italiano</button>
+            <button type="button" class="lang-chip" data-lang="nl" aria-pressed="false"><span class="lang-code">NL</span> Nederlands</button>
+            <button type="button" class="lang-chip" data-lang="ru" aria-pressed="false"><span class="lang-code">RU</span> Русский</button>
+            <button type="button" class="lang-chip" data-lang="tr" aria-pressed="false"><span class="lang-code">TR</span> Türkçe</button>
+            <button type="button" class="lang-chip" data-lang="hi" aria-pressed="false"><span class="lang-code">HI</span> हिन्दी</button>
+            <button type="button" class="lang-chip" data-lang="ja" aria-pressed="false"><span class="lang-code">JA</span> 日本語</button>
+            <button type="button" class="lang-chip" data-lang="ko" aria-pressed="false"><span class="lang-code">KO</span> 한국어</button>
+            <button type="button" class="lang-chip" data-lang="pl" aria-pressed="false"><span class="lang-code">PL</span> Polski</button>
+            <button type="button" class="lang-chip" data-lang="uk" aria-pressed="false"><span class="lang-code">UA</span> Українська</button>
+            <button type="button" class="lang-chip" data-lang="id" aria-pressed="false"><span class="lang-code">ID</span> Indonesia</button>
+            <button type="button" class="lang-chip" data-lang="vi" aria-pressed="false"><span class="lang-code">VI</span> Tiếng Việt</button>
+            <button type="button" class="lang-chip" data-lang="fa" aria-pressed="false"><span class="lang-code">FA</span> فارسی</button>
+            <button type="button" class="lang-chip" data-lang="he" aria-pressed="false"><span class="lang-code">IL</span> עברית</button>
+          </div>
+
+          <article class="dev-card" id="devCard" lang="ar" dir="rtl" aria-live="polite">
+            <header class="dev-who">
+              <span class="dev-avatar" aria-hidden="true"><img src="assets/icon.png" alt="" /></span>
+              <div class="dev-id">
+                <strong>TAHA</strong>
+                <span>@BLACK2DEV · Creator of PIKO AI</span>
+              </div>
+              <span class="dev-age">17 y/o</span>
+            </header>
+
+            <div class="dev-msg" id="devMsg">
+              <p class="dev-greet">سلام،</p>
+              <p>
+                أنا طه، المعروف بـ BLACK2DEV. أنا سعيد جداً بوجودك في موقعي، وأريد أن أرحّب بك في هذا
+                المشروع. هذا المشروع يقدّم لك تحديثاً واحداً كل أسبوع — وإذا كان هناك شيء كبير، ربما كل
+                يومين.
+              </p>
+              <p>
+                أريد أن أخبرك أن PIKO AI IDE مجاني تماماً: بدون اشتراك، وبدون تسجيل دخول. يعمل بنماذج
+                محلية من Ollama. ما زال في مرحلة البيتا، وسأواصل تحديثه. وهو مفتوح المصدر بالكامل
+                للمجتمع، لأنني أريد أفكاركم — الكثير من الأفكار — وأن يساهم الكثير منكم في هذا المشروع.
+              </p>
+            </div>
+
+            <footer class="dev-foot">
+              <div class="dev-links">
+                <a class="dev-discord" data-discord href="https://discord.com/users/1569794818396397741" aria-label="Discord: taha29dev" target="_blank" rel="noopener">
+                  <svg class="i" aria-hidden="true"><use href="#i-terminal" /></svg>
+                  Discord <span data-discord-handle>taha29dev</span>
+                </a>
+                <a class="dev-mail" data-mail href="mailto:tahazitoni123@gmail.com" aria-label="Email: tahazitoni123@gmail.com">
+                  <svg class="i" aria-hidden="true"><use href="#i-mail" /></svg>
+                  Mail <span>tahazitoni123@gmail.com</span>
+                </a>
+              </div>
+              <p class="dev-sign" id="devSign">
+                طه: عمري 17 سنة، ولهذا بنيت هذا الـ IDE. معاً نبني مستقبل العشرين سنة القادمة. سأصنع
+                ثورة في هذا المجال.
+              </p>
+
+              <div class="dev-donate">
+                <div class="dev-donate-head">
+                  <svg class="i" aria-hidden="true"><use href="#i-heart" /></svg>
+                  <strong>Support PIKO AI</strong>
+                  <span>Donation · bank transfer</span>
+                </div>
+                <dl class="dev-bank">
+                  <div><dt>Code Banque</dt><dd>230</dd></div>
+                  <div><dt>Code Ville</dt><dd>810</dd></div>
+                  <div><dt>N° de Compte</dt><dd>4955792211008100</dd></div>
+                  <div><dt>Clé RIB</dt><dd>94</dd></div>
+                </dl>
+                <p class="dev-donate-note">
+                  Every contribution keeps PIKO AI free, open source and independent.
+                </p>
+              </div>
+            </footer>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- ------------------------------------------------------- footer -->
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <a class="brand" href="#top">
+              <img class="brand-mark" src="assets/logo.png" alt="" />
+              <span class="brand-name">PIKO<span>AI</span></span>
+            </a>
+            <p>
+              A free, local-first AI development environment for Windows. Your editor, your terminal, your
+              models — one workspace.
+            </p>
+          </div>
+
+          <div class="footer-cols">
+            <div class="fcol">
+              <h3>Product</h3>
+              <a href="#integration">Integration</a>
+              <a href="#demo">Demo</a>
+              <a href="#download">Download app</a>
+              <a data-github href="https://github.com/black2000a/Introducing-PIKO-AI-A-Free-AI-Powered-IDE-with-Local-AI-Support" target="_blank" rel="noopener">Source code</a>
+            </div>
+            <div class="fcol">
+              <h3>Resources</h3>
+              <a href="#install">Requirements</a>
+              <a href="demo.html" target="_blank" rel="noopener">Open demo</a>
+              <a href="#download">Release notes</a>
+            </div>
+            <div class="fcol">
+              <h3>Company</h3>
+              <a href="#top">About</a>
+              <a href="#top">Security</a>
+              <a data-mail href="mailto:tahazitoni123@gmail.com">Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <span>© <span id="year">2026</span> PIKO AI · Created by TAHA</span>
+          <span class="footer-legal">Windows 10 &amp; 11 · free · no subscription</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="app.js?v=13"></script>
+  </body>
+</html>

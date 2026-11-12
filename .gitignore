@@ -1,0 +1,10 @@
+# Build artifacts and large installers stay out of git.
+downloads/*.exe
+downloads/*.msi
+downloads/*.zip
+downloads/*.rar
+downloads/*.7z
+
+node_modules/
+.DS_Store
+Thumbs.db

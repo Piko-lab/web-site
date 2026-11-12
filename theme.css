@@ -1,0 +1,253 @@
+/* ============================================================
+   PIKO AI — light atmosphere, moving aurora, bare media
+   One soft violet mesh behind every section; sections are
+   transparent, so the page reads as a single surface.
+   ============================================================ */
+
+html,
+body {
+  background: #f6f1ff;
+}
+
+.ambient {
+  background:
+    radial-gradient(1100px 700px at 10% 2%, rgba(139, 92, 246, 0.3), transparent 64%),
+    radial-gradient(950px 700px at 92% 18%, rgba(167, 139, 250, 0.26), transparent 66%),
+    radial-gradient(1200px 820px at 46% 88%, rgba(196, 181, 253, 0.36), transparent 72%),
+    linear-gradient(180deg, #fbf8ff 0%, #f3edff 44%, #f8f4ff 100%);
+}
+
+.orb-a {
+  background: rgba(139, 92, 246, 0.3);
+  opacity: 0.2;
+}
+.orb-b {
+  background: rgba(109, 40, 217, 0.24);
+  opacity: 0.18;
+}
+.orb-c {
+  width: 520px;
+  height: 520px;
+  left: calc(50% - 260px);
+  bottom: -180px;
+  background: rgba(37, 99, 235, 0.22);
+  opacity: 0.14;
+}
+
+.grid {
+  opacity: 0.55;
+  background-image:
+    linear-gradient(rgba(82, 45, 160, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(82, 45, 160, 0.06) 1px, transparent 1px);
+  background-size: 72px 72px;
+  -webkit-mask-image: radial-gradient(90% 78% at 50% 24%, #000 18%, transparent 88%);
+  mask-image: radial-gradient(90% 78% at 50% 24%, #000 18%, transparent 88%);
+}
+
+/* let the global atmosphere show through the page sections */
+.dl,
+.dev,
+.footer,
+.integration {
+  background: transparent;
+}
+
+.dl-grid { display: none; }
+
+/* the integrations section is intentionally transparent */
+.integration { overflow: hidden; }
+.integration::before { content: none; }
+
+/* ------------------------------------------- integrations in violet */
+.integration-eyebrow {
+  color: var(--violet);
+  border-color: rgba(109, 40, 217, 0.2);
+  box-shadow: 0 8px 24px rgba(109, 40, 217, 0.08), inset 0 1px 0 #ffffff;
+}
+.pulse-dot {
+  background: var(--violet);
+  box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.12);
+}
+
+.int-card {
+  border-color: rgba(109, 40, 217, 0.12);
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow:
+    0 24px 60px rgba(76, 29, 149, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+.int-card::before {
+  background: radial-gradient(80% 60% at 14% 0%, rgba(196, 181, 253, 0.24), transparent 62%);
+}
+.int-card:hover {
+  border-color: rgba(109, 40, 217, 0.32);
+  box-shadow:
+    0 30px 70px rgba(76, 29, 149, 0.14),
+    0 0 0 1px rgba(109, 40, 217, 0.08),
+    inset 0 1px 0 #ffffff;
+}
+.int-card.featured {
+  border-color: rgba(109, 40, 217, 0.24);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(245, 241, 255, 0.92));
+  box-shadow:
+    0 26px 64px rgba(76, 29, 149, 0.12),
+    inset 0 1px 0 #ffffff;
+}
+
+.int-icon-ollama {
+  background: linear-gradient(150deg, #f2ecff, #ffffff);
+  border-color: rgba(109, 40, 217, 0.18);
+  color: var(--violet);
+}
+.int-icon-powershell {
+  background: linear-gradient(150deg, #f4f0ff, #ffffff);
+  border-color: rgba(109, 40, 217, 0.16);
+  color: #6d28d9;
+}
+
+.int-pill-blue,
+.int-pill-violet {
+  color: #5b21b6;
+  background: rgba(237, 233, 254, 0.8);
+  border-color: rgba(109, 40, 217, 0.16);
+}
+
+.int-note { color: #5f5b78; }
+.int-note .i { color: var(--violet); }
+
+/* keep the download and developer panels readable on the mesh */
+.dl { color: #0d0d15; }
+.dev,
+.footer { border-top-color: var(--line); }
+
+/* ============================================================
+   Moving atmosphere
+   ============================================================ */
+
+.orb {
+  will-change: transform;
+  animation: orb-drift 24s ease-in-out infinite alternate;
+}
+.orb-b {
+  animation-duration: 30s;
+  animation-delay: -8s;
+  animation-direction: alternate-reverse;
+}
+.orb-c {
+  animation-duration: 36s;
+  animation-delay: -14s;
+}
+
+@keyframes orb-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(46px, -54px, 0) scale(1.12); }
+}
+
+/* a soft light wave that travels across the whole page */
+.ambient::before {
+  content: "";
+  position: absolute;
+  inset: -22%;
+  pointer-events: none;
+  background: linear-gradient(
+    116deg,
+    transparent 30%,
+    rgba(139, 92, 246, 0.13) 43%,
+    rgba(59, 130, 246, 0.09) 53%,
+    transparent 68%
+  );
+  filter: blur(56px);
+  opacity: 0.55;
+  animation: wave-drift 28s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes wave-drift {
+  0% { transform: translate3d(-4%, -2%, 0) rotate(-1.5deg) scale(1.04); }
+  100% { transform: translate3d(4%, 2%, 0) rotate(1.5deg) scale(1.1); }
+}
+
+/* ============================================================
+   Bare product imagery and message — no surrounding boxes
+   ============================================================ */
+
+.dl-mark {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  width: clamp(56px, 5.8vw, 72px);
+  height: clamp(56px, 5.8vw, 72px);
+}
+.dl-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.dl-stage {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.dl-stage::after { display: none; }
+
+.dev-card {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  overflow: visible;
+}
+.dev-card::before,
+.dev-card[dir="rtl"]::before { display: none; }
+
+.dev-msg,
+.dev-sign { max-width: 780px; }
+
+.dev-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ============================================================
+   Transparent task bar
+   ============================================================ */
+
+.nav,
+.nav.scrolled {
+  background: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-bottom-color: transparent;
+}
+.nav {
+  transition:
+    padding 0.3s var(--ease),
+    transform 0.35s var(--ease),
+    opacity 0.25s,
+    background 0.3s,
+    border-color 0.3s;
+}
+.nav.nav-hidden {
+  transform: translateY(calc(-100% - 10px));
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 360px) {
+  .nav-inner { gap: 8px; }
+  .nav .nav-cta { gap: 6px; }
+  .nav .nav-cta .pb-ai-button--nav { padding: 0 11px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb,
+  .ambient::before {
+    animation: none;
+  }
+}

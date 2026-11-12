@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PIKO AI — IDE demo</title>
+    <meta name="description" content="Interactive in-browser demo of the PIKO AI workspace: explorer, editor, terminal and the AI agent panel." />
+    <meta name="theme-color" content="#07020f" />
+    <link rel="icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="demo.css?v=7" />
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true" focusable="false">
+      <defs>
+        <symbol id="d-files" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></symbol>
+        <symbol id="d-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/></symbol>
+        <symbol id="d-git" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.6"/><circle cx="6" cy="18" r="2.6"/><circle cx="18" cy="8" r="2.6"/><path d="M6 8.6v6.8M18 10.6c0 3.2-3 4.2-6.4 4.6"/></symbol>
+        <symbol id="d-blocks" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.6"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.6"/><path d="M13.5 17h7M17 13.5v7"/></symbol>
+        <symbol id="d-brain" viewBox="0 0 24 24"><path d="M9.5 4.5a3 3 0 0 0-3 3 3 3 0 0 0-1.6 5.4A3 3 0 0 0 7 18.2a3 3 0 0 0 5.4 1.1V5.6a3 3 0 0 0-2.9-1.1z"/><path d="M14.5 4.5a3 3 0 0 1 3 3 3 3 0 0 1 1.6 5.4A3 3 0 0 1 17 18.2a3 3 0 0 1-5.4 1.1"/></symbol>
+        <symbol id="d-sparkles" viewBox="0 0 24 24"><path d="M12 3.5 13.7 9l5.5 1.7-5.5 1.7L12 18l-1.7-5.6L4.8 10.7 10.3 9z"/></symbol>
+        <symbol id="d-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+        <symbol id="d-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+        <symbol id="d-chevron" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+        <symbol id="d-chevron-down" viewBox="0 0 24 24"><path d="m5 9 7 7 7-7"/></symbol>
+        <symbol id="d-terminal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.4"/><path d="m7.5 9 3 3-3 3M13 15h4"/></symbol>
+        <symbol id="d-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+        <symbol id="d-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M6 11l6-6 6 6"/></symbol>
+        <symbol id="d-folder" viewBox="0 0 24 24"><path d="M3.5 7.5a2 2 0 0 1 2-2h3.2l2 2.4h6.8a2 2 0 0 1 2 2v8.6a2 2 0 0 1-2 2H5.5a2 2 0 0 1-2-2z"/></symbol>
+        <symbol id="d-command" viewBox="0 0 24 24"><path d="M8.5 8.5v7M15.5 8.5v7M8.5 8.5h7M8.5 15.5h7"/><path d="M8.5 8.5a3 3 0 1 0-3 3h3zm7 0a3 3 0 1 1 3 3h-3zm-7 7a3 3 0 1 1-3-3h3zm7 0a3 3 0 1 0 3-3h-3z"/></symbol>
+        <symbol id="d-code" viewBox="0 0 24 24"><path d="m9 8-4.5 4L9 16M15 8l4.5 4L15 16"/></symbol>
+      </defs>
+    </svg>
+
+    <div class="ide" id="ide">
+      <!-- title bar -->
+      <header class="tb">
+        <span class="tb-brand"><img src="assets/logo.png" alt="" /> PIKO<span>AI</span></span>
+        <nav class="tb-menu">
+          <button type="button" data-menu="File">File</button>
+          <button type="button" data-menu="Edit">Edit</button>
+          <button type="button" data-menu="View">View</button>
+          <button type="button" data-menu="Go">Go</button>
+          <button type="button" data-menu="Run">Run</button>
+          <button type="button" data-menu="Terminal">Terminal</button>
+          <button type="button" data-menu="Help">Help</button>
+        </nav>
+        <span class="tb-path">US-SMOKE-PROJECT</span>
+        <button class="tb-search" type="button" id="palette-open">
+          <svg class="i"><use href="#d-command" /></svg>
+          <span class="tb-search-label">Search commands, files…</span>
+          <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>P</kbd>
+        </button>
+        <span class="tb-dot" title="Model connected"></span>
+      </header>
+
+      <div class="body">
+        <!-- activity bar -->
+        <nav class="rail" aria-label="Activity bar">
+          <button class="rail-btn active" type="button" data-view="explorer" title="Explorer"><svg class="i"><use href="#d-files" /></svg></button>
+          <button class="rail-btn" type="button" data-view="search" title="Search"><svg class="i"><use href="#d-search" /></svg></button>
+          <button class="rail-btn" type="button" data-view="git" title="Source Control"><svg class="i"><use href="#d-git" /></svg></button>
+          <button class="rail-btn" type="button" data-view="extensions" title="Extensions"><svg class="i"><use href="#d-blocks" /></svg></button>
+          <button class="rail-btn" type="button" data-view="memory" title="Memory"><svg class="i"><use href="#d-brain" /></svg></button>
+          <span class="rail-fill"></span>
+          <button class="rail-btn bright" type="button" id="toggle-ai" title="AI assistant"><svg class="i"><use href="#d-sparkles" /></svg></button>
+        </nav>
+
+        <!-- sidebar -->
+        <aside class="side" id="side">
+          <div class="side-head"><span id="side-title">EXPLORER</span><span class="side-tools">…</span></div>
+          <div class="side-body" id="side-body"></div>
+        </aside>
+
+        <!-- center -->
+        <main class="center">
+          <div class="tabs" id="tabs"></div>
+          <div class="editor" id="editor"></div>
+
+          <section class="bottom" id="bottom">
+            <div class="bottom-head">
+              <button class="bottom-tab active" type="button">Terminal</button>
+              <button class="bottom-tab" type="button">Problems</button>
+              <button class="bottom-tab" type="button">Output</button>
+              <span class="bottom-fill"></span>
+              <button class="ghost" type="button" id="clear-term" title="Clear">Clear</button>
+              <button class="ghost" type="button" id="hide-bottom" title="Hide"><svg class="i s12"><use href="#d-x" /></svg></button>
+            </div>
+            <div class="term" id="term">
+              <div class="term-line"><b>PS C:\Users\ULTRAPC\US-SMOKE-PROJECT&gt;</b> PIKO AI terminal · type <i>help</i></div>
+            </div>
+            <div class="term-input-row">
+              <b>PS&gt;</b>
+              <input id="term-input" class="term-input" autocomplete="off" spellcheck="false" aria-label="Terminal input" />
+            </div>
+          </section>
+        </main>
+
+        <!-- AI panel -->
+        <aside class="ai" id="ai">
+          <div class="ai-head">
+            <img src="assets/logo.png" alt="" />
+            <b>PIKO AI</b>
+            <i class="live"></i>
+            <span class="fill"></span>
+            <button class="ghost" type="button" id="hide-ai" title="Hide"><svg class="i s12"><use href="#d-x" /></svg></button>
+          </div>
+
+          <div class="ai-model">
+            <span class="dot"></span> LM Studio (local) · local-model
+            <span class="chip">Direct</span>
+          </div>
+
+          <div class="ai-modes" id="modes">
+            <button type="button" data-mode="ask" title="Read-only answers">ASK</button>
+            <button type="button" data-mode="plan" title="Read-only plans">PLAN</button>
+            <button type="button" data-mode="code" title="Edits with approvals">CODE</button>
+            <button class="on" type="button" data-mode="agent" title="Full autonomous loop">AGENT</button>
+          </div>
+
+          <div class="chat" id="chat">
+            <div class="chat-intro" id="chat-intro">
+              <div class="intro-head">
+                <img src="assets/logo.png" alt="" />
+                <div>
+                  <b>PIKO AI agent</b>
+                  <small id="intro-hint">Full autonomous loop with approvals</small>
+                </div>
+              </div>
+              <p>I can read and edit your project, run commands, search the web and keep persistent memory.</p>
+              <div class="chips">
+                <button type="button" data-prompt="Explain the architecture of this project.">Explain this project</button>
+                <button type="button" data-prompt="Find likely bugs in App.tsx.">Find a bug</button>
+                <button type="button" data-prompt="Write tests for agent.ts and run them.">Write tests</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="composer">
+            <textarea id="prompt" rows="2" placeholder="Message PIKO AI or type / for commands…" aria-label="Message PIKO AI"></textarea>
+            <div class="composer-foot">
+              <span id="composer-hint">file + shell tools · approvals</span>
+              <span class="fill"></span>
+              <button class="send" type="button" id="send"><svg class="i s12"><use href="#d-arrow-up" /></svg> Send</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- status bar -->
+      <footer class="status">
+        <span class="status-item"><svg class="i s11"><use href="#d-git" /></svg> no repo</span>
+        <span class="status-item">✕ 0</span>
+        <span class="status-item">⚠ 0</span>
+        <span class="status-credit">Free · created by TAHA</span>
+        <span class="status-item">Ollama</span>
+        <span class="status-item">LM Studio (local) · local-model</span>
+        <span class="status-item">US-SMOKE-PROJECT</span>
+        <span class="status-item mono">v1.5.3</span>
+      </footer>
+
+      <div class="palette" id="palette" hidden>
+        <div class="palette-box">
+          <input id="palette-input" placeholder="Type a command or file name…" autocomplete="off" />
+          <div class="palette-list" id="palette-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="demo.js?v=7"></script>
+  </body>
+</html>
