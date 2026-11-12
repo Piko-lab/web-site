@@ -27,7 +27,7 @@ python -m http.server 5200 --bind 127.0.0.1
 ```
 
 Any static file server works. All asset paths are relative, so the site also
-runs from a subdirectory such as `https://black2000a.github.io/web-site/`.
+runs from a subdirectory such as `https://piko-lab.github.io/web-site/`.
 
 ## Edit the links
 
@@ -35,9 +35,9 @@ Everything external lives in the `CONFIG` block at the top of `app.js`:
 
 ```js
 version:       '1.5.3'
-installer:     'https://github.com/black2000a/PIKO-AI-A-APP-DOWNLOAD'
-portable:      'https://github.com/black2000a/PIKO-AI-A-APP-DOWNLOAD/releases/latest/download/PIKO-AI-Portable-1.5.3-x64.exe'
-github:        'https://github.com/black2000a/Introducing-PIKO-AI-A-Free-AI-Powered-IDE-with-Local-AI-Support'
+installer:     'https://github.com/Piko-lab/PIKO-AI-A-APP-DOWNLOAD'
+portable:      'https://github.com/Piko-lab/PIKO-AI-A-APP-DOWNLOAD/releases/latest/download/PIKO-AI-Portable-1.5.3-x64.exe'
+github:        'https://github.com/Piko-lab/Introducing-PIKO-AI-A-Free-AI-Powered-IDE-with-Local-AI-Support'
 discordHandle: 'taha29dev'
 mail:          'mailto:tahazitoni123@gmail.com'
 ```
@@ -49,18 +49,18 @@ with JavaScript disabled.
 
 The site is hosted with **GitHub Pages** from the `main` branch, repository root.
 
-1. Push this folder to `https://github.com/black2000a/web-site`.
+1. Push this folder to `https://github.com/Piko-lab/web-site`.
 2. Repository → **Settings → Pages**.
 3. Source: **Deploy from a branch** · Branch: **main** · Folder: **/ (root)**.
-4. Save. The site appears at <https://black2000a.github.io/web-site/>.
+4. Save. The site appears at <https://piko-lab.github.io/web-site/>.
 
 `.nojekyll` is included so GitHub serves the files as-is.
 
 ## Links
 
-- Download: <https://github.com/black2000a/PIKO-AI-A-APP-DOWNLOAD>
-- Source code: <https://github.com/black2000a/Introducing-PIKO-AI-A-Free-AI-Powered-IDE-with-Local-AI-Support>
-- Website: <https://github.com/black2000a/web-site>
+- Download: <https://github.com/Piko-lab/PIKO-AI-A-APP-DOWNLOAD>
+- Source code: <https://github.com/Piko-lab/Introducing-PIKO-AI-A-Free-AI-Powered-IDE-with-Local-AI-Support>
+- Website: <https://github.com/Piko-lab/web-site>
 
 ## Developer
 

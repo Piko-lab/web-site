@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://black2000a.github.io/web-site/sitemap.xml
+Sitemap: https://piko-lab.github.io/web-site/sitemap.xml

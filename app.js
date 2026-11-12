@@ -5,9 +5,9 @@
 
 const CONFIG = {
   version: '1.5.3',
-  installer: 'https://github.com/black2000a/PIKO-AI-A-APP-DOWNLOAD',
-  portable: 'https://github.com/black2000a/PIKO-AI-A-APP-DOWNLOAD/releases/latest/download/PIKO-AI-Portable-1.5.3-x64.exe',
-  github: 'https://github.com/black2000a/Introducing-PIKO-AI-A-Free-AI-Powered-IDE-with-Local-AI-Support',
+  installer: 'https://github.com/Piko-lab/PIKO-AI-A-APP-DOWNLOAD',
+  portable: 'https://github.com/Piko-lab/PIKO-AI-A-APP-DOWNLOAD/releases/latest/download/PIKO-AI-Portable-1.5.3-x64.exe',
+  github: 'https://github.com/Piko-lab/Introducing-PIKO-AI-A-Free-AI-Powered-IDE-with-Local-AI-Support',
   ollama: 'https://ollama.com',
   discord: 'https://discord.com/users/1569794818396397741',
   discordHandle: 'taha29dev',
